@@ -1,0 +1,19 @@
+server:
+  port: 8004
+
+spring:
+  application:
+    name: BOOKINGS-API
+  datasource:
+    url: jdbc:postgresql://localhost:5432/checkoutdb
+    username: postgres
+    password: Qwerty@123
+
+graphql:
+  servlet:
+    mapping: /bookings
+
+graphiql:
+  endpoint:
+    graphql: /bookings
+  mapping: /bookings/graphiql

@@ -1,0 +1,69 @@
+schema {
+ query: Query
+}
+
+type Query {
+ allBookings: [Booking]
+ booking(bookingId: String): Booking
+}
+
+type Booking {
+  bookingId: String
+  bookingStatus: BookingStatus
+  currencyCode: String
+  locator: String
+  itinerary: Itinerary
+  contactInformation: ContactInformation
+  paymentInformation: PaymentInformation
+}
+
+type Itinerary {
+  itineraryId: String
+  journeys: [Journey]
+}
+
+type Journey {
+  journeyId: String
+  way: String
+  duration: Int
+  segments: [Segment]
+}
+
+type Segment {
+  segmentId: String
+  flightNo: Int
+  durationInMinutes: Int
+  travelClass: String
+  waitingTimeInMinutes: Int
+  departureCode: String
+  departureDate: String
+  arrivalCode: String
+  arrivalDate: String
+  price: Price
+}
+
+type Price {
+  priceId: String
+  amount: Float
+  currencyCode: String
+}
+
+type ContactInformation {
+  email: String
+  phoneNumber: String
+}
+
+type PaymentInformation {
+  cardType: String
+  cardHolderName: String
+  cardNumber: String
+  cvv: Int
+  expiryMonth: Int
+  expiryYear: Int
+}
+
+enum BookingStatus {
+    Booked
+    Pending
+    Failed
+}
