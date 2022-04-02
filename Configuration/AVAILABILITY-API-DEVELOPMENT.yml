@@ -1,0 +1,11 @@
+creditCardsConfig:
+  validCreditCards:
+    - AX: Amex
+    - CA: MasterCard
+    - VI: Visa
+    - DS: Discover
+    - TP: UniversalAirTravelPlan
+    - SW: SwitchMaestro
+    - VD: VisaDebit
+    - VE: Electron
+    - DM: MasterCard
