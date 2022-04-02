@@ -1,0 +1,15 @@
+server:
+  port: 8005
+
+spring:
+  application:
+    name: PAYMENT-API
+  cloud:
+    stream:
+      function:
+        definition : paymentProcessor
+      bindings:
+        paymentProcessor-in-0 :
+          destination: booking-event
+        paymentProcessor-out-0:
+          destination: payment-event
