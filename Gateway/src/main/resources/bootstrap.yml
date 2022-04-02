@@ -1,0 +1,46 @@
+spring:
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8763
+    gateway:
+      routes:
+        - id: SEARCH-API
+          uri: lb://SEARCH-API
+          predicates:
+            - Path=/search/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: SEARCH-API
+                fallbackuri: forward:/searchApiFallBack
+            - name: AuthenticationFilter
+        - id: AVAILABILITY-API
+          uri: lb://AVAILABILITY-API
+          predicates:
+            - Path=/availability/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: AVAILABILITY-API
+                fallbackuri: forward:/availabilityApiFallBack
+            - name: AuthenticationFilter
+        - id: CHECKOUT-API
+          uri: lb://CHECKOUT-API
+          predicates:
+            - Path=/checkout/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: CHECKOUT-API
+                fallbackuri: forward:/checkoutApiFallBack
+            - name: AuthenticationFilter
+        - id: BOOKINGS-API
+          uri: lb://BOOKINGS-API
+          predicates:
+            - Path=/bookings/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: BOOKINGS-API
+                fallbackuri: forward:/bookingsApiFallBack

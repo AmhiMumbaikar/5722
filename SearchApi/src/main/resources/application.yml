@@ -1,0 +1,24 @@
+server:
+  port: 8001
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: SEARCH-API
+  datasource:
+    url: jdbc:postgresql://localhost:5432/searchdb
+    username: postgres
+    password: Qwerty@123
+  redis:
+    host: localhost
+    port: 6379
+    connect-timeout: 60000
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always

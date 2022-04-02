@@ -1,0 +1,12 @@
+server:
+  port: 8763
+
+spring:
+  application:
+    name: CONFIGURATION-SERVER
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/cs5721Project/5722/tree/master/Configuration
+          clone-on-start: true
