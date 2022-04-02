@@ -1,0 +1,25 @@
+server:
+  port: 8762
+
+spring:
+  application:
+    name: GATEWAY
+  main:
+    web-application-type: REACTIVE
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: 862346fa6599e3228c22
+            clientSecret: 96f9e7f85ddaf2b4e0c76eaabdf96235ff3d5b70
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+tenant:
+  name: vada
+  password: pav
