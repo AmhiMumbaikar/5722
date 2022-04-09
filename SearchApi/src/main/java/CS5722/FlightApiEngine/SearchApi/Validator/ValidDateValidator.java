@@ -8,14 +8,21 @@ import java.text.SimpleDateFormat;
 public class ValidDateValidator implements ConstraintValidator<ValidDate, String> {
 
     private String message;
+    private boolean nullable;
 
     @Override
     public void initialize ( ValidDate validAirportCode ) {
         this.message = String.format(validAirportCode.message(),validAirportCode.propName());
+        this.nullable = validAirportCode.nullable();
     }
 
     @Override
     public boolean isValid ( String date,ConstraintValidatorContext constraintValidatorContext ) {
+
+        if (this.nullable && date == null) {
+            return true;
+        }
+
         var dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dateFormat.setLenient(false);
 

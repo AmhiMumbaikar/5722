@@ -18,4 +18,6 @@ public @interface ValidDate {
     Class<? extends Payload>[] payload() default { };
 
     String propName ();
+
+    boolean nullable();
 }
