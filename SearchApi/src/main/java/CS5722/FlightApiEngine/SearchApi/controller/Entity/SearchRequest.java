@@ -16,10 +16,10 @@ public class SearchRequest
     @ValidAirportCode(propName = "toCode")
     private String toCode;
 
-    @ValidDate(propName = "fromDate")
+    @ValidDate(propName = "fromDate", nullable = false)
     private String fromDate;
 
-    @ValidDate(propName = "toDate")
+    @ValidDate(propName = "toDate", nullable = true)
     private String toDate;
 
     private TripType tripType;
