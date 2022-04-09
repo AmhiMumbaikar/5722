@@ -1,0 +1,26 @@
+server:
+  port: 8003
+
+spring:
+  application:
+    name: CHECKOUT-API
+  datasource:
+    url: jdbc:postgresql://localhost:5432/checkoutdb
+    username: postgres
+    password: Qwerty@123
+  redis:
+    host: localhost
+    port: 6379
+    connect-timeout: 60000
+  jpa:
+    hibernate:
+      ddl-auto: create
+  cloud:
+    stream:
+      function:
+        definition: bookingSupplier;paymentEventConsumer
+      bindings:
+        bookingSupplier-out-0:
+          destination: booking-event
+        paymentEventConsumer-in-0:
+          destination: payment-event
